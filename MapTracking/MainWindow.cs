@@ -223,7 +223,14 @@ namespace poeMapTracking
             {
                 int i = 0;
                 int.TryParse(((Label)sender).Name.Substring(2), out i);
-                this.mapTracker.clearTier(i);
+                try
+                {
+                    this.mapTracker.clearTier(i);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
