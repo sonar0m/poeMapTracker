@@ -33,8 +33,29 @@ namespace poeMapTracking
         {
             #region hot Keys
             hKeys1 = new Hotkey();
-            hKeys1.KeyCode = Keys.F5;
-            hKeys1.Control = true;
+            string sKey = ConfigurationManager.AppSettings["key"];
+            if (sKey == null)
+            {
+                //ConfigurationManager.AppSettings.Add("key", Keys.F5.ToString());
+                sKey = Keys.F5.ToString();
+            }
+            KeysConverter convert = new KeysConverter();
+            try
+            {
+                if (sKey.Length == 1)
+                    sKey = sKey.ToUpper();
+                hKeys1.KeyCode = (Keys)convert.ConvertFromString(sKey.ToUpper());
+            }
+            catch { }
+            sKey= ConfigurationManager.AppSettings["shift"];
+            if(sKey!=null)
+                hKeys1.Shift=sKey.ToLower()=="true";
+            sKey= ConfigurationManager.AppSettings["alt"];
+            if(sKey!=null)
+                hKeys1.Alt=sKey.ToLower()=="true";
+            sKey= ConfigurationManager.AppSettings["control"];
+            if(sKey!=null)
+                hKeys1.Control=sKey.ToLower()=="true";
             hKeys1.Pressed += delegate
             {
                 switch (mapTracker.state)
@@ -68,6 +89,12 @@ namespace poeMapTracking
             this.mapThread.Start();
             #endregion
         }
+        private void MainWindow_SizeChanged(object sender, EventArgs e)
+        {
+            this.OutputBox.Height = this.panel1.Size.Height - 10;
+            this.OutputBox.Width = this.panel1.Size.Width - 10;
+        }
+
         private void setStateText(string text)
         {
             this.StateText.Text = text;
@@ -204,12 +231,6 @@ namespace poeMapTracking
         {
             this.mapTracker = new MapTracker();
             this.mapTracker.state = State.waiting;
-        }
-
-        private void MainWindow_SizeChanged(object sender, EventArgs e)
-        {
-            this.OutputBox.Height = this.panel1.Size.Height - 10;
-            this.OutputBox.Width = this.panel1.Size.Width - 10;
         }
 
         private void statuspanel_Paint(object sender, PaintEventArgs e)
