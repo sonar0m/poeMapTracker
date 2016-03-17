@@ -1,6 +1,6 @@
 ﻿namespace poeMapTracking
 {
-    partial class MainWindow
+    partial class Offline
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.OutputBox = new System.Windows.Forms.TextBox();
             this.mt1 = new System.Windows.Forms.Label();
             this.mt2 = new System.Windows.Forms.Label();
             this.mt3 = new System.Windows.Forms.Label();
@@ -46,28 +44,15 @@
             this.mt14 = new System.Windows.Forms.Label();
             this.mt15 = new System.Windows.Forms.Label();
             this.StateText = new System.Windows.Forms.Label();
-            this.mapBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clrRun = new System.Windows.Forms.Button();
             this.ClrMaps = new System.Windows.Forms.Button();
             this.FLpanButton = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.statuspanel = new System.Windows.Forms.TableLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.mapBindingSource)).BeginInit();
             this.FLpanButton.SuspendLayout();
             this.panel1.SuspendLayout();
             this.statuspanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // OutputBox
-            // 
-            this.OutputBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.OutputBox.Location = new System.Drawing.Point(0, 32);
-            this.OutputBox.MinimumSize = new System.Drawing.Size(80, 211);
-            this.OutputBox.Multiline = true;
-            this.OutputBox.Name = "OutputBox";
-            this.OutputBox.ReadOnly = true;
-            this.OutputBox.Size = new System.Drawing.Size(792, 211);
-            this.OutputBox.TabIndex = 0;
             // 
             // mt1
             // 
@@ -278,10 +263,6 @@
             this.StateText.TabIndex = 1;
             this.StateText.Text = "`";
             // 
-            // mapBindingSource
-            // 
-            this.mapBindingSource.DataSource = typeof(poeMapTracking.Map);
-            // 
             // clrRun
             // 
             this.clrRun.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -319,7 +300,6 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.statuspanel);
-            this.panel1.Controls.Add(this.OutputBox);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Margin = new System.Windows.Forms.Padding(1);
@@ -373,7 +353,7 @@
             this.statuspanel.TabIndex = 2;
             this.statuspanel.Paint += new System.Windows.Forms.PaintEventHandler(this.statuspanel_Paint);
             // 
-            // MainWindow
+            // Offline
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -384,12 +364,11 @@
             this.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(800, 300);
-            this.Name = "MainWindow";
+            this.Name = "Offline";
             this.Text = "Map Traker";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_Closing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.SizeChanged += new System.EventHandler(this.MainWindow_SizeChanged);
-            ((System.ComponentModel.ISupportInitialize)(this.mapBindingSource)).EndInit();
             this.FLpanButton.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -401,10 +380,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox OutputBox;
         private System.Windows.Forms.Label mt1, mt2, mt3, mt4, mt5, mt6, mt7, mt8, mt9, mt10, mt11, mt12, mt13, mt14, mt15;
         private System.Windows.Forms.Label StateText;
-        private System.Windows.Forms.BindingSource mapBindingSource;
         private System.Windows.Forms.Button clrRun;
         private System.Windows.Forms.Button ClrMaps;
         private System.Windows.Forms.FlowLayoutPanel FLpanButton;
